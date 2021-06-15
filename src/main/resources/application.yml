@@ -1,0 +1,28 @@
+server:
+  port: 8700
+  tomcat:
+    connection-timeout: 18000000
+websocket:
+  #test 环境
+  #address: localhost:9090
+  address: localhost:8700
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/model?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    show-sql: true
+    #数据库方言设置
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        jdbc:
+          batch_size:  500
+          batch_versioned_data: true
+jwt:
+  secret: ffjaksdfjak
+  expiration: 3600000 #过期时间 3600000 半个小时
+  header:  JWTHeaderName
+  refresh_expiration: 651000000 #刷新token的过期时间7天
